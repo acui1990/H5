@@ -31,7 +31,12 @@
 
 ### 关于viewport
 先来了解一点关于viewport的知识，通常我们采用如下代码设置viewport:<br>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><br>
+<pre>
+    <code>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    </code>
+</pre>
+
 这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：<br>
 
 设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。dpr是devicePixelRatio的简写，也就是屏幕分辩比。<br>
@@ -45,10 +50,19 @@ devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已
 <br>
 这么做目的当然是为了保证页面的大小与设计稿保持一致了，比如设计稿如果是750的横向分辨率，那么实际页面的device-width，以iphone6来说，也等于750，这样的话设计稿上标注的尺寸只要除以某一个值就能够转换为rem了。通过js设置viewport的方法如下：<br>
 <br>
-var scale = 1 / devicePixelRatio;document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
-<br>
+<pre>
+    <code>
+    var scale = 1 / devicePixelRatio;document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+    </code>
+</pre>
+
 这里给出完美视口<br>
-<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/><br>
+<pre>
+    <code>
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>
+    </code>
+</pre>
+
 在移动端，低端无定制的需求，都可以用这个完美视口完成。<br>
 
 ### 把视觉稿中的px转换成rem
@@ -56,13 +70,21 @@ var scale = 1 / devicePixelRatio;document.querySelector('meta[name="viewport"]')
 在html上增加一个font-size样式。之后页面中的元素，都可以用rem单位来设置。html上的font-size就是rem的基准像素。<br>
 首先，目前视觉稿大小分为640，750以及，1125这三种。<br>
 当前方案会把这3类视觉稿分成100份来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：<br>
-1a = 7.5px <br>
-1rem = 75px <br>
-
+<pre>
+<code>
+</code>
+1a = 7.5px 
+1rem = 75px 
+</pre>
 因此，对于视觉稿上的元素的尺寸换算，只需要原始px值除以rem基准px值即可。例如240px * 120px的元素，最后转换为3.2rem * 1.6rem。
 手动设置rem基准值的方法<br>
 输出如下css样式即可：<br>
-html {font-size: 60px!important;}<br>
+<pre>
+<code>
+html {font-size: 60px!important;}
+</code>
+</pre>
+
 在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，然后根据不同的页面尺寸用css3媒体查询去更改设置font-size值。<br>
 各个屏幕的rem基准值：<br>
 
@@ -131,6 +153,8 @@ div {width: 1rem;  height: 0.4rem;font-size: 12px; // 默认写上dpr为1的font
 Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。<br>
 伸缩盒模型（flexbox）是一个新的盒子模型，主要优化了UI布局。作为实际布局的第一个CSS模块（浮动真的应该主要用来制作文本围绕图片这样的效果），它使很多任务容易多。Flexbox的功能主要包手：简单使用一个元素居中（包括水平垂直居中），可以让扩大和收缩元素来填充容器的可利用空间，可以改变源码顺序独立布局，以及还有其他的一些功能。<br>
 flexbox的版本：<br>
+<pre>
+<code>
   display: -webkit-box;  /* 老版本语法: Safari,  iOS, Android browser, older WebKit browsers.  */<br>
   display: -moz-box;    /* 老版本语法: Firefox (buggy) */<br>
   display: -ms-flexbox;  /* 混合版本语法: IE 10 */<br>
@@ -173,33 +197,48 @@ h1 {<br>
  <br>
   height: 10rem;<br>
 }<br><br>
+</code></pre>
 横向的弹性布局<br>
-<pre><code>
-        <div class="flex-box">
+<pre>
+<code>
+    <div class="flex-box">
     <div class="flex"></div>
     <div class="flex"></div>
     <div class="flex"></div>
 </div>
-</code></pre>
+</code>
+</pre>
 
 <br>
 横向弹性布局css样式<br>
-.flex-box{display:-webkit-box;display:-ms-flexbox;width: 100%;-webkit-box-sizing: border-box;} <br>
-.flex{-webkit-box-flex:1;-ms-flex:1;width: 0;}<br>
-.vc{-webkit-box-align: center;}<br>
-.hc{-webkit-box-pack: center;}<br>
+<pre>
+<code>
+.flex-box{display:-webkit-box;display:-ms-flexbox;width: 100%;-webkit-box-sizing: border-box;} 
+.flex{-webkit-box-flex:1;-ms-flex:1;width: 0;}
+.vc{-webkit-box-align: center;}
+.hc{-webkit-box-pack: center;}
+<code>
+</pre>
 纵向的弹性布局<br>
-<div class="ui-row-flex"><br>
-    <div class="ui-col ui-col-3"></div><br>
-    <div class="ui-col ui-col-2"></div><br>
+<pre>
+<code>
+<div class="ui-row-flex">
+    <div class="ui-col ui-col-3"></div>
+    <div class="ui-col ui-col-2"></div>
 </div><br>
+</code>
+</pre>
 纵向弹性布局css样式
+<pre>
+<code>
 .ui-row-flex {display: -webkit-box;width: 100%;-webkit-box-sizing: border-box; box-sizing: border-box;}
 .ui-row-flex-ver {-webkit-box-orient: vertical;}
 .ui-row-flex .ui-col { -webkit-box-flex: 1;}
 .ui-row-flex-ver .ui-col {width: 100%;height: 0;}
 .ui-row-flex .ui-col-2 {-webkit-box-flex: 2;}
 .ui-row-flex .ui-col-3 {-webkit-box-flex: 3;}
+</code>
+</pre>
 [一个完整的Flexbox指南](http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html)<br>
 
 [W3C Flexbox API](http://www.w3.org/html/ig/zh/css-flex-1/)<br>
@@ -214,20 +253,25 @@ h1 {<br>
 (http://www.alloyteam.com/2015/05/xi-shuo-flexbox-dan-xing-he-zi-bu-ju/)<br>
 
 ###  基于display:table的CSS布局
+<pre>
+<code>
 <ul class="table-equal demo"><br>
-    <li>手机</li><br>
-    <li>联系人</li><br>
-    <li>信息</li><br>
-    <li>主屏</li><br>
-  </ul>  <br>
-  .table-equal {<br>
-  display: table;<br>
-  table-layout: fixed;<br>
-  width: 100%;<br>
+    <li>手机</li>
+    <li>联系人</li>
+    <li>信息</li>
+    <li>主屏</li>
+  </ul>
+  
+  .table-equal {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
 }
-.table-equal li {<br>
-  display: table-cell;<br>
-}  <br>
+.table-equal li {
+  display: table-cell;
+} 
+</code>
+</pre>
 ### CSS 模块
 [详解:](http://glenmaddern.com/articles/css-modules)<br>
 #### 像局部一样无需考虑全局冲突
@@ -251,6 +295,8 @@ h1 {<br>
             6.按钮默认块级元素，内联按钮可在外围标签追加class="btn-inline"。
    ============================= */
 /* btn 基类 */
+<pre>
+<code>
 .btn{display:block;width:100%;position:relative;margin:.2em 0;padding:.86em 1em;line-height:16px;text-align:center;vertical-align:middle;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;}<br>
 .btn .icon{width:20px;height:20px;display:inline-block;background:#666666;vertical-align:middle;margin:-3px 5px 0 5px;border-radius:20px;-webkit-border-radius:20px;}<br><br>
 .btn .icon img{width:100%;height:100%;}<br>
@@ -290,6 +336,8 @@ h1 {<br>
 /* btn-del 删除按钮扩展类 */<br>
 .btn-del{width:40px;height:23px;line-height:23px;font-size:12px;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #FF424F), color-stop(1, #EC1214));background-image:linear-gradient(to bottom, #FF424F, #EC1214);background-color:#AC000C;border:1px solid #AC000C;border-radius:3px;}<br><br>
 .btn-del.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #EC1214), color-stop(1, #FF424F));background-image:linear-gradient(to bottom, #EC1214, #FF424F);}<br>
+</code>
+</pre>
 所有按钮除了都是基于btn开发进行扩展之外，还有<br>
 点击态：<br>
   如果使用系统默认点击态，那么btn再添加一个属性即可：-webkit-tap-highlight-color:rgba(0,0,0,0.1);/* 设置点击链接或按钮时遮罩层为10%透明 */；<br>
