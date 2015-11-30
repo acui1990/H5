@@ -66,19 +66,15 @@ html {font-size: 60px!important;}<br>
 在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，然后根据不同的页面尺寸用css3媒体查询去更改设置font-size值。<br>
 各个屏幕的rem基准值：<br>
 
-    <ul>
-    <li>Bird</li>
-    <li>Magic</li>
-    </ul>
-html{font-size:10px;}<br>
-@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px;}}<br>
-@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px;}}<br>
-@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px;}}<br>
-@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px;}}<br>
-@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px;}}<br>
-@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px;}}<br>
-@media screen and (min-width:800px){html{font-size:25px;}}<br>
-<br>
+    html{font-size:10px;}
+    @media screen and (min-width:321px) and (max-width:375px){html{font-size:11px;}}
+    @media screen and (min-width:376px) and (max-width:414px){html{font-size:12px;}}
+    @media screen and (min-width:415px) and (max-width:639px){html{font-size:15px;}}
+    @media screen and (min-width:640px) and (max-width:719px){html{font-size:20px;}}
+    @media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px;}}
+    @media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px;}}
+    @media screen and (min-width:800px){html{font-size:25px;}}
+
 （1）. item类在所有设备下的width都是3.4rem，但在不同分辨率下的实际像素是不一样的，所以在有些分辨率下，width的界面效果不一定合适，有可能太宽，有可能太窄，这时候就要对width进行调整，那么就需要针对.item写媒介查询的代码，为该分辨率重新设计一个rem值。然而，这里有7种媒介查询的情况，css又有很多跟尺寸相关的属性，哪个属性在哪个分辨率范围不合适都是不定的，最后会导致要写很多的媒介查询才能适配所有设备，而且在写的时候rem都得根据某个分辨率html的font-size去算，这个计算可不见得每次都那么容易，比如40px / 23.5px，这个rem值口算不出来吧！由此可见这其中的麻烦有多少。 
 <br>
 （2）. 以上代码中给出的7个范围下的font-size不一定是合适的，这7个范围也不一定合适，实际有可能不需要这么多，所以找出这些个范围，以及每个范围最合适的font-size也很麻烦 
@@ -89,9 +85,15 @@ html{font-size:10px;}<br>
 
 ### 字体设置
 使用无衬线字体<br>
-body {<br>
-    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;<br>
-}<br>
+
+<pre>
+<code>
+body {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+</code>
+</pre>
+
 iOS 4.0+ 使用英文字体 Helvetica Neue，之前的iOS版本降级使用 Helvetica。中文字体设置为华文黑体STHeiTi。<br> 需补充说明，华文黑体并不存在iOS的字体库中(http://support.apple.com/kb/HT5878)， 但系统会自动将华文黑体 STHeiTi<br> 兼容命中系统默认中文字体黑体-简或黑体-繁<br>
 Heiti SC Light 黑体-简 细体 （iOS 7后废弃）<br>
 Heiti SC Medium 黑体-简 中黑<br>
