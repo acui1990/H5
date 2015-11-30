@@ -267,6 +267,9 @@ h1 {
 那么这些不同类型的按钮都是在一个原生的按钮基础上衍生出来的，那就是btn。<br>
 代码如下：<br>
 
+<pre>
+<code>
+
 /* =============================
    名称：btn
    使用说明：操作按钮
@@ -278,8 +281,6 @@ h1 {
             6.按钮默认块级元素，内联按钮可在外围标签追加class="btn-inline"。
    ============================= */
 /* btn 基类 */
-<pre>
-<code>
 .btn{display:block;width:100%;position:relative;margin:.2em 0;padding:.86em 1em;line-height:16px;text-align:center;vertical-align:middle;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;}
 .btn .icon{width:20px;height:20px;display:inline-block;background:#666666;vertical-align:middle;margin:-3px 5px 0 5px;border-radius:20px;-webkit-border-radius:20px;}
 .btn .icon img{width:100%;height:100%;}
