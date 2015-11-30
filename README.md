@@ -1,33 +1,33 @@
 #  H5的开发经验
 ## 移动端自适应方案
 ### 写页面时的一些规范
-1. css、html、js文件编码统一使用UTF-8 <br>
-2. 尽量使用HTML5新标签，使代码更加语义化<br>
-3. 禁止使用#定义样式，避免与js的id发生冲突，统一使用类<br>
-4. 不在style中定义样式，除特殊情况（百分比之类）<br>
-5. js脚本统一放到body之后<br>
-6. 样式大块之间需要添加注释，且空一行<br>
-7. 交互和动画需要添加注释说明<br>
-8. 特殊图标使用网页代码，例如： ©使用&copy<br>
-9. 样式属性之间、括弧与代码之间不留空格<br>
-10. 样式命名需要见名知意，建议不要使用1、2、3、4或者a、b、c、d之类<br>
-11. 提炼通用结构，使用扩展类进行不同样式的定义<br>
-12. 大背景图片大小控制在60kb以内（100kb）<br>
-13. 模块的标题使用h1-h6，根据模块重要程度选择使用<br>
-14. 尽量简化标签结构层次<br>
-15. html结构合理简单清晰<br>
-16. 能用代码实现尽量不用使用图片，用以减少请求数量<br>
-17. 列表结构尽量使用ul ol dl<br>
-18. 模块结构划分合理，不能讲同一块信息分在不同结构上<br>
+1. css、html、js文件编码统一使用UTF-8 
+2. 尽量使用HTML5新标签，使代码更加语义化
+3. 禁止使用#定义样式，避免与js的id发生冲突，统一使用类
+4. 不在style中定义样式，除特殊情况（百分比之类）
+5. js脚本统一放到body之后
+6. 样式大块之间需要添加注释，且空一行
+7. 交互和动画需要添加注释说明
+8. 特殊图标使用网页代码，例如： ©使用&copy
+9. 样式属性之间、括弧与代码之间不留空格
+10. 样式命名需要见名知意，建议不要使用1、2、3、4或者a、b、c、d之类
+11. 提炼通用结构，使用扩展类进行不同样式的定义
+12. 大背景图片大小控制在60kb以内（100kb）
+13. 模块的标题使用h1-h6，根据模块重要程度选择使用
+14. 尽量简化标签结构层次
+15. html结构合理简单清晰
+16. 能用代码实现尽量不用使用图片，用以减少请求数量
+17. 列表结构尽量使用ul ol dl
+18. 模块结构划分合理，不能讲同一块信息分在不同结构上
 19. 切图需要分析哪些元素需要动态获取的（img数据类的），哪些元素是固定不变的（bg修饰类的）以达到结构可扩展性<br>
-20. 给不确定的字段留够空间，超出使用<br>
-21. 合理使用绝对和相对定位<br>
-22. 多尝试使用css3盒布局和其他新属性<br>
-23. 考虑多种状态的存在（列表页、无数据提示、loading提示、报错等等）<br>
-24. 扩展性要求高的结构宽高不要定死<br>
-25. 能加title的地方尽量加上title<br>
-26. 纯图片的结构里边需要有文字，使用text-indent隐藏<br>
-27. 合并雪碧图，目前我们有使用字体图标，base64、图片<br>
+20. 给不确定的字段留够空间，超出使用
+21. 合理使用绝对和相对定位
+22. 多尝试使用css3盒布局和其他新属性
+23. 考虑多种状态的存在（列表页、无数据提示、loading提示、报错等等）
+24. 扩展性要求高的结构宽高不要定死
+25. 能加title的地方尽量加上title
+26. 纯图片的结构里边需要有文字，使用text-indent隐藏
+27. 合并雪碧图，目前我们有使用字体图标，base64、图片
 
 ### 关于viewport
 先来了解一点关于viewport的知识，通常我们采用如下代码设置viewport:<br>
@@ -75,7 +75,6 @@ devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已
 html {font-size: 60px!important;}
 </code>
 </pre>
-
 在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，然后根据不同的页面尺寸用css3媒体查询去更改设置font-size值。<br>
 各个屏幕的rem基准值：
 <pre><code>
@@ -123,10 +122,10 @@ JS动态计算（常见做法）<br>
 var fontSize = width / 750 * 24 ;<br>
 根据dpr设定 （比较好的做法）<br>
 ps : 一般时初始化时设置为根元素html的attribute，<br>
-   window.document.documentElement.setAttribute('dpr',window.devicePixelRatio)<br>
+window.document.documentElement.setAttribute('dpr',window.devicePixelRatio)<br>
 然后css这样写<br>
-   [dpr=1] { font-size=16px;}<br>
-  [dpr=2] {font-size=32px; }<br>
+[dpr=1] { font-size=16px;}<br>
+[dpr=2] {font-size=32px; }<br>
 字体的大小不推荐用rem作为单位。所以对于字体的设置，仍旧使用px作为单位，并配合用data-dpr属性来区分不同dpr下的的大小。<br>
 例如：<br>
 div {width: 1rem;  height: 0.4rem;font-size: 12px; // 默认写上dpr为1的fontSize}<br>
@@ -190,9 +189,9 @@ h1 {
 横向的弹性布局<br>
 
         <div class="flex-box">
-          <div class="flex"></div>
-          <div class="flex"></div>
-          <div class="flex"></div>
+            <div class="flex"></div>
+            <div class="flex"></div>
+            <div class="flex"></div>
         </div>
 
 横向弹性布局css样式
@@ -323,8 +322,7 @@ h1 {
 </code>
 </pre>
 所有按钮除了都是基于btn开发进行扩展之外，还有<br>
-点击态：<br>
-  如果使用系统默认点击态，那么btn再添加一个属性即可：-webkit-tap-highlight-color:rgba(0,0,0,0.1);/* 设置点击链接或按钮时遮罩层为10%透明 */；<br>
+点击态：如果使用系统默认点击态，那么btn再添加一个属性即可：-webkit-tap-highlight-color:rgba(0,0,0,0.1);/* 设置点击链接或按钮时遮罩层为10%透明 */；<br>
   ​如果自定义点击态样式，追加active；<br>
 不可点击态：追加disabled。<br>
 庆幸的是，类似.btn-white.active（.A.B.C）的连接（多类）class书写形式，移动端是支持的非常好的，所以完全可以大胆使用。
