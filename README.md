@@ -165,7 +165,31 @@ h1 {<br>
   align-items: center;//最新版本<br>
  <br>
   height: 10rem;<br>
-}<br>
+}<br><br>
+横向的弹性布局<br>
+<div class="flex-box"><br>
+    <div class="flex"></div><br>
+    <div class="flex"></div><br>
+    <div class="flex"></div><br>
+</div><br>
+<br>
+横向弹性布局css样式<br>
+.flex-box{display:-webkit-box;display:-ms-flexbox;width: 100%;-webkit-box-sizing: border-box;} <br>
+.flex{-webkit-box-flex:1;-ms-flex:1;width: 0;}<br>
+.vc{-webkit-box-align: center;}<br>
+.hc{-webkit-box-pack: center;}<br>
+纵向的弹性布局<br>
+<div class="ui-row-flex"><br>
+    <div class="ui-col ui-col-3"></div><br>
+    <div class="ui-col ui-col-2"></div><br>
+</div><br>
+纵向弹性布局css样式
+.ui-row-flex {display: -webkit-box;width: 100%;-webkit-box-sizing: border-box; box-sizing: border-box;}
+.ui-row-flex-ver {-webkit-box-orient: vertical;}
+.ui-row-flex .ui-col { -webkit-box-flex: 1;}
+.ui-row-flex-ver .ui-col {width: 100%;height: 0;}
+.ui-row-flex .ui-col-2 {-webkit-box-flex: 2;}
+.ui-row-flex .ui-col-3 {-webkit-box-flex: 3;}
 [一个完整的Flexbox指南](http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html)<br>
 
 [W3C Flexbox API](http://www.w3.org/html/ig/zh/css-flex-1/)<br>
@@ -179,6 +203,21 @@ h1 {<br>
 [腾讯全端 AlloyTeam 团队 -浅谈flexbox的弹性盒子布局]<br>
 (http://www.alloyteam.com/2015/05/xi-shuo-flexbox-dan-xing-he-zi-bu-ju/)<br>
 
+###  基于display:table的CSS布局
+<ul class="table-equal demo"><br>
+    <li>手机</li><br>
+    <li>联系人</li><br>
+    <li>信息</li><br>
+    <li>主屏</li><br>
+  </ul>  <br>
+  .table-equal {<br>
+  display: table;<br>
+  table-layout: fixed;<br>
+  width: 100%;<br>
+}
+.table-equal li {<br>
+  display: table-cell;<br>
+}  <br>
 ### CSS 模块
 [详解:](http://glenmaddern.com/articles/css-modules)<br>
 #### 像局部一样无需考虑全局冲突
