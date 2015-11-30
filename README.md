@@ -202,7 +202,7 @@ h1 {
 .flex{-webkit-box-flex:1;-ms-flex:1;width: 0;}
 .vc{-webkit-box-align: center;}
 .hc{-webkit-box-pack: center;}
-<code>
+</code>
 </pre>
 纵向的弹性布局<br>
 
