@@ -188,8 +188,7 @@ h1 {
 }
 </code></pre>
 横向的弹性布局<br>
-<pre>
-<code>
+
 
    `` <div class="flex-box">``
  <br> 
@@ -201,8 +200,6 @@ h1 {
      <br> 
 ``</div>``
 
-</code>
-</pre>
 
 <br>
 横向弹性布局css样式<br>
