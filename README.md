@@ -205,14 +205,12 @@ h1 {
 <code>
 </pre>
 纵向的弹性布局<br>
-<pre>
-<code>
-``<div class="ui-row-flex">``
-    ``<div class="ui-col ui-col-3"></div>``
-    ``<div class="ui-col ui-col-2"></div``
-``</div>``
-</code>
-</pre>
+
+        <div class="ui-row-flex">
+            <div class="ui-col ui-col-3"></div>
+            <div class="ui-col ui-col-2"></div>
+        </div>
+
 纵向弹性布局css样式
 <pre>
 <code>
@@ -237,15 +235,14 @@ h1 {
 (http://www.alloyteam.com/2015/05/xi-shuo-flexbox-dan-xing-he-zi-bu-ju/)<br>
 
 ###  基于display:table的CSS布局
-<pre>
-<code>
-``<ul class="table-equal demo">``
-    ``<li>手机</li>``
-    ``<li>联系人</li>``
-    ``<li>信息</li>``
-    ``<li>主屏</li>``
-  ``</ul>``
-  
+
+    <ul class="table-equal demo">
+        <li>手机</li>
+        <li>联系人</li>
+        <li>信息</li>
+        <li>主屏</li>
+    </ul>
+<pre><code>  
   .table-equal {
   display: table;
   table-layout: fixed;
