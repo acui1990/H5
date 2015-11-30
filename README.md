@@ -33,7 +33,7 @@
 先来了解一点关于viewport的知识，通常我们采用如下代码设置viewport:<br>
 <pre>
     <code>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    ``<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </code>
 </pre>
 
@@ -69,7 +69,7 @@ devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已
 
 在html上增加一个font-size样式。之后页面中的元素，都可以用rem单位来设置。html上的font-size就是rem的基准像素。<br>
 首先，目前视觉稿大小分为640，750以及，1125这三种。<br>
-当前方案会把这3类视觉稿分成100份来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：<br>
+当前方案会把这3类视觉稿分成100份来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：
 <pre>
 <code>
 </code>
@@ -86,8 +86,8 @@ html {font-size: 60px!important;}
 </pre>
 
 在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，然后根据不同的页面尺寸用css3媒体查询去更改设置font-size值。<br>
-各个屏幕的rem基准值：<br>
-
+各个屏幕的rem基准值：
+<pre><code>
     html{font-size:10px;}
     @media screen and (min-width:321px) and (max-width:375px){html{font-size:11px;}}
     @media screen and (min-width:376px) and (max-width:414px){html{font-size:12px;}}
@@ -96,7 +96,7 @@ html {font-size: 60px!important;}
     @media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px;}}
     @media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px;}}
     @media screen and (min-width:800px){html{font-size:25px;}}
-
+</code></pre>
 （1）. item类在所有设备下的width都是3.4rem，但在不同分辨率下的实际像素是不一样的，所以在有些分辨率下，width的界面效果不一定合适，有可能太宽，有可能太窄，这时候就要对width进行调整，那么就需要针对.item写媒介查询的代码，为该分辨率重新设计一个rem值。然而，这里有7种媒介查询的情况，css又有很多跟尺寸相关的属性，哪个属性在哪个分辨率范围不合适都是不定的，最后会导致要写很多的媒介查询才能适配所有设备，而且在写的时候rem都得根据某个分辨率html的font-size去算，这个计算可不见得每次都那么容易，比如40px / 23.5px，这个rem值口算不出来吧！由此可见这其中的麻烦有多少。 
 <br>
 （2）. 以上代码中给出的7个范围下的font-size不一定是合适的，这7个范围也不一定合适，实际有可能不需要这么多，所以找出这些个范围，以及每个范围最合适的font-size也很麻烦 
@@ -106,8 +106,7 @@ html {font-size: 60px!important;}
 <br>
 
 ### 字体设置
-使用无衬线字体<br>
-
+使用无衬线字体
 <pre>
 <code>
 body {
@@ -115,7 +114,6 @@ body {
 }
 </code>
 </pre>
-
 iOS 4.0+ 使用英文字体 Helvetica Neue，之前的iOS版本降级使用 Helvetica。中文字体设置为华文黑体STHeiTi。<br> 需补充说明，华文黑体并不存在iOS的字体库中(http://support.apple.com/kb/HT5878)， 但系统会自动将华文黑体 STHeiTi<br> 兼容命中系统默认中文字体黑体-简或黑体-繁<br>
 Heiti SC Light 黑体-简 细体 （iOS 7后废弃）<br>
 Heiti SC Medium 黑体-简 中黑<br>
@@ -126,7 +124,7 @@ Heiti TC Medium 黑体-繁 中黑<br>
 4.0 之后中英文字体都会使用原生 Android 新的 Roboto 字体<br>
 其他第三方 Android 系统也一致选择默认的无衬线字体<br>
 
-#### [字体不使用rem的方法[(https://github.com/amfe/lib-flexible)
+#### [字体不使用rem的方法](https://github.com/amfe/lib-flexible)
 JS动态计算（常见做法）<br>
 根据不同屏幕宽度计算不同字号大小。<br>
 1. 定基准值,设计稿是750宽度（2倍屏）,字体的大小是24px.
@@ -240,7 +238,6 @@ h1 {<br>
 </code>
 </pre>
 [一个完整的Flexbox指南](http://www.w3cplus.com/css3/a-guide-to-flexbox-new.html)<br>
-
 [W3C Flexbox API](http://www.w3.org/html/ig/zh/css-flex-1/)<br>
 [CSS3弹性盒模型生成器](http://the-echoplex.net/flexyboxes/)<br>
 [CSS3 flexbox弹性布局实例](http://caibaojian.com/flexbox-example.html#t3)<br>
