@@ -192,9 +192,13 @@ h1 {
 <code>
 
    `` <div class="flex-box">``
+ <br> 
     ``<div class="flex"></div>``
+   <br> 
     ``<div class="flex"></div>``
+     <br> 
     ``<div class="flex"></div>``
+     <br> 
 ``</div>``
 
 </code>
