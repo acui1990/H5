@@ -187,7 +187,7 @@ h1 {
   height: 10rem;
 }
 </code></pre>
-横向的弹性布局<br>
+横向的弹性布局
 
         <div class="flex-box">
           <div class="flex"></div>
@@ -195,7 +195,7 @@ h1 {
           <div class="flex"></div>
         </div>
         
-横向弹性布局css样式<br>
+横向弹性布局css样式
 <pre>
 <code>
 .flex-box{display:-webkit-box;display:-ms-flexbox;width: 100%;-webkit-box-sizing: border-box;} 
@@ -323,8 +323,7 @@ h1 {
 点击态：<br>
   如果使用系统默认点击态，那么btn再添加一个属性即可：-webkit-tap-highlight-color:rgba(0,0,0,0.1);/* 设置点击链接或按钮时遮罩层为10%透明 */；<br>
   ​如果自定义点击态样式，追加active；<br>
-不可点击态：<br>
-  追加disabled。<br>
+不可点击态：追加disabled。<br>
 庆幸的是，类似.btn-white.active（.A.B.C）的连接（多类）class书写形式，移动端是支持的非常好的，所以完全可以大胆使用。
 按钮形态虽多，但在正式项目中，很少会同时出现N多种形态。<br>
 所以操作按钮算是移动端网页中最容易开发的页面元素了。<br>
