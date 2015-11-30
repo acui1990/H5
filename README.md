@@ -31,7 +31,7 @@
 
 ### 关于viewport
 先来了解一点关于viewport的知识，通常我们采用如下代码设置viewport:<br>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  ``<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">``
 这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：<br>
 
 设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。dpr是devicePixelRatio的简写，也就是屏幕分辩比。<br>
@@ -52,11 +52,7 @@ devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已
 </pre>
 
 这里给出完美视口<br>
-<pre>
-    <code>
-    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>
-    </code>
-</pre>
+``<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>``
 
 在移动端，低端无定制的需求，都可以用这个完美视口完成。<br>
 
@@ -67,9 +63,9 @@ devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已
 当前方案会把这3类视觉稿分成100份来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：
 <pre>
 <code>
-</code>
 1a = 7.5px 
 1rem = 75px 
+</code>
 </pre>
 因此，对于视觉稿上的元素的尺寸换算，只需要原始px值除以rem基准px值即可。例如240px * 120px的元素，最后转换为3.2rem * 1.6rem。
 手动设置rem基准值的方法<br>
@@ -148,57 +144,59 @@ Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提�
 flexbox的版本：<br>
 <pre>
 <code>
-  display: -webkit-box;  /* 老版本语法: Safari,  iOS, Android browser, older WebKit browsers.  */<br>
-  display: -moz-box;    /* 老版本语法: Firefox (buggy) */<br>
-  display: -ms-flexbox;  /* 混合版本语法: IE 10 */<br>
-  display: -webkit-flex;  /* 新版本语法： Chrome 21+ */<br>
-  display: flex;       /* 新版本语法： Opera 12.1, Firefox 22+ */<br>
+  display: -webkit-box;  /* 老版本语法: Safari,  iOS, Android browser, older WebKit browsers.  */
+  display: -moz-box;    /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;  /* 新版本语法： Chrome 21+ */
+  display: flex;       /* 新版本语法： Opera 12.1, Firefox 22+ */
   <br>
-  /*垂直居中*/   <br>
-  /*老版本语法*/<br>
-  -webkit-box-align: center;<br>
-  -moz-box-align: center;<br>
-  /*混合版本语法*/<br>
-  -ms-flex-align: center;<br>
-  /*新版本语法*/<br>
-  -webkit-align-items: center;<br>
-  align-items: center;<br>
- <br>
-  /*水平居中*/<br><br>
-  /*老版本语法*/<br>
-  -webkit-box-pack: center;<br>
-  -moz-box-pack: center;<br>
-  /*混合版本语法*/<br>
-  -ms-flex-pack: center;<br>
-  /*新版本语法*/<br>
-  -webkit-justify-content: center;<br>
-  justify-content: center;<br>
+  /*垂直居中*/   
+  /*老版本语法*/
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  /*混合版本语法*/
+  -ms-flex-align: center;
+  /*新版本语法*/
+  -webkit-align-items: center;
+  align-items: center;
+
+  /*水平居中*/
+  /*老版本语法*/
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  /*混合版本语法*/
+  -ms-flex-pack: center;
+  /*新版本语法*/
+  -webkit-justify-content: center;
+  justify-content: center;
 <br><br>
-/*实现文本垂直居中*/<br>
-h1 {<br>
-  display: -webkit-box;<br>
-  display: -moz-box;<br>
-  display: -ms-flexbox;<br>
-  display: -webkit-flex;<br>
-  display: flex;<br>
- <br>
-  -webkit-box-align: center;<br>
-  -moz-box-align: center;<br>
-  -ms-flex-align: center;<br>
-  -webkit-align-items: center;<br>
-  align-items: center;//最新版本<br>
- <br>
-  height: 10rem;<br>
-}<br><br>
+/*实现文本垂直居中*/
+h1 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;//最新版本
+
+  height: 10rem;
+}
 </code></pre>
 横向的弹性布局<br>
 <pre>
 <code>
-    <div class="flex-box">
-    <div class="flex"></div>
-    <div class="flex"></div>
-    <div class="flex"></div>
-</div>
+
+   `` <div class="flex-box">``
+    ``<div class="flex"></div>``
+    ``<div class="flex"></div>``
+    ``<div class="flex"></div>``
+``</div>``
+
 </code>
 </pre>
 
@@ -215,10 +213,10 @@ h1 {<br>
 纵向的弹性布局<br>
 <pre>
 <code>
-<div class="ui-row-flex">
-    <div class="ui-col ui-col-3"></div>
-    <div class="ui-col ui-col-2"></div>
-</div><br>
+``<div class="ui-row-flex">``
+    ``<div class="ui-col ui-col-3"></div>``
+    ``<div class="ui-col ui-col-2"></div``
+``</div>``
 </code>
 </pre>
 纵向弹性布局css样式
@@ -247,12 +245,12 @@ h1 {<br>
 ###  基于display:table的CSS布局
 <pre>
 <code>
-<ul class="table-equal demo"><br>
-    <li>手机</li>
-    <li>联系人</li>
-    <li>信息</li>
-    <li>主屏</li>
-  </ul>
+``<ul class="table-equal demo">``
+    ``<li>手机</li>``
+    ``<li>联系人</li>``
+    ``<li>信息</li>``
+    ``<li>主屏</li>``
+  ``</ul>``
   
   .table-equal {
   display: table;
@@ -289,45 +287,45 @@ h1 {<br>
 /* btn 基类 */
 <pre>
 <code>
-.btn{display:block;width:100%;position:relative;margin:.2em 0;padding:.86em 1em;line-height:16px;text-align:center;vertical-align:middle;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;}<br>
-.btn .icon{width:20px;height:20px;display:inline-block;background:#666666;vertical-align:middle;margin:-3px 5px 0 5px;border-radius:20px;-webkit-border-radius:20px;}<br><br>
-.btn .icon img{width:100%;height:100%;}<br>
-.btn-icon-left .icon{float:left;margin:0;}<br>
-.btn-icon-right .icon{float:right;margin:0;}<br>
-.btn-notxt .btn{text-indent:-90em;}<br>
-/* corner-all 圆角按钮 */<br>
-.btn-corner .btn{border-radius:4px;-webkit-border-radius:4px;}<br>
+.btn{display:block;width:100%;position:relative;margin:.2em 0;padding:.86em 1em;line-height:16px;text-align:center;vertical-align:middle;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.btn .icon{width:20px;height:20px;display:inline-block;background:#666666;vertical-align:middle;margin:-3px 5px 0 5px;border-radius:20px;-webkit-border-radius:20px;}
+.btn .icon img{width:100%;height:100%;}
+.btn-icon-left .icon{float:left;margin:0;}
+.btn-icon-right .icon{float:right;margin:0;}
+.btn-notxt .btn{text-indent:-90em;}
+/* corner-all 圆角按钮 */
+.btn-corner .btn{border-radius:4px;-webkit-border-radius:4px;}
 /* btn-shadow 带阴影按钮 */<br>
-.btn-shadow .btn{box-shadow:0 3px 3px rgba(0,0,0,0.3);}<br>
-/* btn-inline 内联按钮 */<br>
-.btn-inline .btn{display:inline-block;width:auto;}<br>
-/* mini-btn 微型按钮 */<br>
-.btn-mini .btn{padding:.5em 1em;font-size:0.8em;}<br>
-/* btn-green 绿色按钮扩展类 */<br>
+.btn-shadow .btn{box-shadow:0 3px 3px rgba(0,0,0,0.3);}
+/* btn-inline 内联按钮 */
+.btn-inline .btn{display:inline-block;width:auto;}
+/* mini-btn 微型按钮 */
+.btn-mini .btn{padding:.5em 1em;font-size:0.8em;}
+/* btn-green 绿色按钮扩展类 */
 .btn-green{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #36CC36), color-stop(1, #19A819));background-image:linear-gradient(to bottom, #36CC36, #19A819);background-color:#19A819;color:#FFFFFF;}<br>
-.btn-green.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #19A819), color-stop(1, #36CC36));background-image:linear-gradient(to bottom, #19A819, #36CC36);}<br>
-/* btn-red 红色按钮扩展类 */<br>
+.btn-green.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #19A819), color-stop(1, #36CC36));background-image:linear-gradient(to bottom, #19A819, #36CC36);}
+/* btn-red 红色按钮扩展类 */
 .btn-red{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #C50C0C), color-stop(1, #AE0B0B));background-image:linear-gradient(to bottom, #C50C0C, #AE0B0B);background-color:#BA0C0C;color:#FFFFFF;}<br>
-.btn-red.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #AE0B0B), color-stop(1, #C50C0C));background-image:linear-gradient(to bottom, #AE0B0B, #C50C0C);}<br>
-/* btn-blue 蓝色按钮扩展类 */<br>
+.btn-red.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #AE0B0B), color-stop(1, #C50C0C));background-image:linear-gradient(to bottom, #AE0B0B, #C50C0C);}
+/* btn-blue 蓝色按钮扩展类 */
 .btn-blue{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #425ebe), color-stop(1, #2f4691));background-image:linear-gradient(to bottom, #425ebe, #2f4691);background-color:#BA0C0C;color:#FFFFFF;}<br>
-.btn-blue.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #425ebe), color-stop(1, #425ebe));background-image:linear-gradient(to bottom, #425ebe), color-stop, #425ebe);}<br>
-/* btn-red-s 红色小按钮扩展类 */<br>
-.btn-red-s, .btn-red-s.active{height:30px;min-width:80px;max-width:100px;line-height:30px;background-color:#E04241;border:1px solid #CC0000;box-shadow:0 0 3px rgba(0,0,0,0.7);text-shadow:0 -1px 0 #621D1D;}<br>
-/* btn-gray 灰色按钮扩展类 */<br>
+.btn-blue.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #425ebe), color-stop(1, #425ebe));background-image:linear-gradient(to bottom, #425ebe), color-stop, #425ebe);}
+/* btn-red-s 红色小按钮扩展类 */
+.btn-red-s, .btn-red-s.active{height:30px;min-width:80px;max-width:100px;line-height:30px;background-color:#E04241;border:1px solid #CC0000;box-shadow:0 0 3px rgba(0,0,0,0.7);text-shadow:0 -1px 0 #621D1D;}
+/* btn-gray 灰色按钮扩展类 */
 .btn-gray{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #F8F8F8), color-stop(1, #E1E1E1));background-image:linear-gradient(to bottom, #F8F8F8, #E1E1E1);background-color:#EBEBEB;color:#555555;}<br>
-.btn-gray.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #E1E1E1), color-stop(1, #F8F8F8));background-image:linear-gradient(to bottom, #E1E1E1, #F8F8F8);}<br>
-/* btn-disable 禁用按钮扩展类 */<br>
+.btn-gray.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #E1E1E1), color-stop(1, #F8F8F8));background-image:linear-gradient(to bottom, #E1E1E1, #F8F8F8);}
+/* btn-disable 禁用按钮扩展类 */
 .btn-disable, .btn-disable.active{background-image:none;background-color:#E1E1E1;color:#919191}<br>
-/* btn-white 白色按钮扩展类 */<br>
-.btn-white{background-color:#FFFFFF;color:#333333;}<br>
-.btn-white.active{background-color:#FFFFFF;color:#333333;}<br>
-/* btn-white-s 白色小按钮扩展类 */<br>
-.btn-white-s{background-color:#FFFFFF;border:1px solid #CEC9B4;color:#333333;}<br>
-.btn-white-s.active{background-color:#FFFFFF;border:1px solid #CEC9B4;color:#333333;}<br>
-/* btn-del 删除按钮扩展类 */<br>
-.btn-del{width:40px;height:23px;line-height:23px;font-size:12px;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #FF424F), color-stop(1, #EC1214));background-image:linear-gradient(to bottom, #FF424F, #EC1214);background-color:#AC000C;border:1px solid #AC000C;border-radius:3px;}<br><br>
-.btn-del.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #EC1214), color-stop(1, #FF424F));background-image:linear-gradient(to bottom, #EC1214, #FF424F);}<br>
+/* btn-white 白色按钮扩展类 */
+.btn-white{background-color:#FFFFFF;color:#333333;}
+.btn-white.active{background-color:#FFFFFF;color:#333333;}
+/* btn-white-s 白色小按钮扩展类 */
+.btn-white-s{background-color:#FFFFFF;border:1px solid #CEC9B4;color:#333333;}
+.btn-white-s.active{background-color:#FFFFFF;border:1px solid #CEC9B4;color:#333333;}
+/* btn-del 删除按钮扩展类 */
+.btn-del{width:40px;height:23px;line-height:23px;font-size:12px;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #FF424F), color-stop(1, #EC1214));background-image:linear-gradient(to bottom, #FF424F, #EC1214);background-color:#AC000C;border:1px solid #AC000C;border-radius:3px;}
+.btn-del.active{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #EC1214), color-stop(1, #FF424F));background-image:linear-gradient(to bottom, #EC1214, #FF424F);}
 </code>
 </pre>
 所有按钮除了都是基于btn开发进行扩展之外，还有<br>
