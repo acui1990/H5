@@ -88,11 +88,11 @@ html {font-size: 60px!important;}
     @media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px;}}
     @media screen and (min-width:800px){html{font-size:25px;}}
 </code></pre>
-（1）. item类在所有设备下的width都是3.4rem，但在不同分辨率下的实际像素是不一样的，所以在有些分辨率下，width的界面效果不一定合适，有可能太宽，有可能太窄，这时候就要对width进行调整，那么就需要针对.item写媒介查询的代码，为该分辨率重新设计一个rem值。然而，这里有7种媒介查询的情况，css又有很多跟尺寸相关的属性，哪个属性在哪个分辨率范围不合适都是不定的，最后会导致要写很多的媒介查询才能适配所有设备，而且在写的时候rem都得根据某个分辨率html的font-size去算，这个计算可不见得每次都那么容易，比如40px / 23.5px，这个rem值口算不出来吧！由此可见这其中的麻烦有多少。 
+(1). item类在所有设备下的width都是3.4rem，但在不同分辨率下的实际像素是不一样的，所以在有些分辨率下，width的界面效果不一定合适，有可能太宽，有可能太窄，这时候就要对width进行调整，那么就需要针对.item写媒介查询的代码，为该分辨率重新设计一个rem值。然而，这里有7种媒介查询的情况，css又有很多跟尺寸相关的属性，哪个属性在哪个分辨率范围不合适都是不定的，最后会导致要写很多的媒介查询才能适配所有设备，而且在写的时候rem都得根据某个分辨率html的font-size去算，这个计算可不见得每次都那么容易，比如40px / 23.5px，这个rem值口算不出来吧！由此可见这其中的麻烦有多少。 
 <br>
-（2）. 以上代码中给出的7个范围下的font-size不一定是合适的，这7个范围也不一定合适，实际有可能不需要这么多，所以找出这些个范围，以及每个范围最合适的font-size也很麻烦 
+(2). 以上代码中给出的7个范围下的font-size不一定是合适的，这7个范围也不一定合适，实际有可能不需要这么多，所以找出这些个范围，以及每个范围最合适的font-size也很麻烦 
 <br>
-（3）. 设计稿都是以分辨率来标明尺寸的，前端在根据设计稿里各个元素的像素尺寸转换为rem时，该以哪个font-size为准呢？这需要去写才能知道。<br>
+(3). 设计稿都是以分辨率来标明尺寸的，前端在根据设计稿里各个元素的像素尺寸转换为rem时，该以哪个font-size为准呢？这需要去写才能知道。<br>
 [详细关于rem的说明请参考腾讯ISUS] (http://isux.tencent.com/web-app-rem.html)
 <br>
 
@@ -187,14 +187,14 @@ h1 {
   height: 10rem;
 }
 </code></pre>
-横向的弹性布局
+横向的弹性布局<br>
 
         <div class="flex-box">
           <div class="flex"></div>
           <div class="flex"></div>
           <div class="flex"></div>
         </div>
-        
+
 横向弹性布局css样式
 <pre>
 <code>
@@ -242,6 +242,7 @@ h1 {
         <li>信息</li>
         <li>主屏</li>
     </ul>
+
 <pre><code>  
   .table-equal {
   display: table;
