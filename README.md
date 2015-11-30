@@ -96,14 +96,13 @@ Heiti TC Medium 黑体-繁 中黑<br>
 4.0 之后中英文字体都会使用原生 Android 新的 Roboto 字体<br>
 其他第三方 Android 系统也一致选择默认的无衬线字体<br>
 
-#### 字体不使用rem的方法
+#### [字体不使用rem的方法[(https://github.com/amfe/lib-flexible)
 JS动态计算（常见做法）<br>
 根据不同屏幕宽度计算不同字号大小。<br>
 1. 定基准值,设计稿是750宽度（2倍屏）,字体的大小是24px.
 2. 计算指定宽度的字体大小。
 var fontSize = width / 750 * 24 ;<br>
 根据dpr设定 （比较好的做法）<br>
-  [详解：](https://github.com/amfe/lib-flexible)<br>
 ps : 一般时初始化时设置为根元素html的attribute，<br>
    window.document.documentElement.setAttribute('dpr',window.devicePixelRatio)<br>
 然后css这样写<br>
@@ -167,11 +166,14 @@ h1 {<br>
   height: 10rem;<br>
 }<br><br>
 横向的弹性布局<br>
-<div class="flex-box"><br>
-    <div class="flex"></div><br>
-    <div class="flex"></div><br>
-    <div class="flex"></div><br>
-</div><br>
+<pre><code>
+        <div class="flex-box">
+    <div class="flex"></div>
+    <div class="flex"></div>
+    <div class="flex"></div>
+</div>
+</code></pre>
+
 <br>
 横向弹性布局css样式<br>
 .flex-box{display:-webkit-box;display:-ms-flexbox;width: 100%;-webkit-box-sizing: border-box;} <br>
