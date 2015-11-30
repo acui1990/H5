@@ -58,12 +58,18 @@ var scale = 1 / devicePixelRatio;document.querySelector('meta[name="viewport"]')
 当前方案会把这3类视觉稿分成100份来看待（为了以后兼容vh，vw单位）。每一份被称为一个单位a。同时，1rem单位认定为10a。拿750的视觉稿举例：<br>
 1a = 7.5px <br>
 1rem = 75px <br>
+
 因此，对于视觉稿上的元素的尺寸换算，只需要原始px值除以rem基准px值即可。例如240px * 120px的元素，最后转换为3.2rem * 1.6rem。
 手动设置rem基准值的方法<br>
 输出如下css样式即可：<br>
 html {font-size: 60px!important;}<br>
 在实际项目中，把与元素尺寸有关的css，如width,height,line-height,margin,padding等都以rem作为单位，这样页面在不同设备下就能保持一致的网页布局。举例来说，网页有一个.item类，设置了width为3.4rem，然后根据不同的页面尺寸用css3媒体查询去更改设置font-size值。<br>
 各个屏幕的rem基准值：<br>
+
+    <ul>
+    <li>Bird</li>
+    <li>Magic</li>
+    </ul>
 html{font-size:10px;}<br>
 @media screen and (min-width:321px) and (max-width:375px){html{font-size:11px;}}<br>
 @media screen and (min-width:376px) and (max-width:414px){html{font-size:12px;}}<br>
