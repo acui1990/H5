@@ -31,12 +31,12 @@
 
 ### 关于viewport
 先来了解一点关于viewport的知识，通常我们采用如下代码设置viewport:<br>
-  ``<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">``
+  `<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">`
 这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：<br>
 
 设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。dpr是devicePixelRatio的简写，也就是屏幕分辩比。<br>
 
-历史原因，由于苹果retina的产生，使得清晰度提升，主要是因为`设备像素`提升了一倍，因此可以用更多像素去绘画更清晰的图像.<br>
+历史原因，由于苹果retina的产生，使得清晰度提升，主要是因为设备像素提升了一倍，因此可以用更多像素去绘画更清晰的图像.<br>
 坊间对于dpr更通俗的说法叫<br>
 . 一倍屏<br>
 . 两倍屏<br>
@@ -52,7 +52,7 @@ devicePixelRatio称为设备像素比，每款设备的devicePixelRatio都是已
 </pre>
 
 这里给出完美视口<br>
-``<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>``
+`<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>`
 
 在移动端，低端无定制的需求，都可以用这个完美视口完成。<br>
 
@@ -188,12 +188,13 @@ h1 {
 }
 </code></pre>
 横向的弹性布局<br>
+
         <div class="flex-box">
           <div class="flex"></div>
           <div class="flex"></div>
           <div class="flex"></div>
         </div>
-<br>
+        
 横向弹性布局css样式<br>
 <pre>
 <code>
